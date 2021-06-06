@@ -25,7 +25,7 @@ class SettingViewController: UIViewController, UIScrollViewDelegate {
         
         let item = dataSource[indexPath]
         switch item {
-        case .account, .security, .notification, .contents, .sounds, .dataUsing, .accessibility:
+        case .account, .security, .notification, .contents, .sounds, .dataUsing, .accessibility, .credits, .version, .privacyPolicy:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = item.title
             cell.accessoryType = item.accessoryType
@@ -65,6 +65,9 @@ class SettingViewController: UIViewController, UIScrollViewDelegate {
                 case .dataUsing: break
                 case .accessibility: break
                 case .description: break
+                case .credits: break
+                case .version: break
+                case .privacyPolicy: break
                 }
             })
             .disposed(by: disposeBag)

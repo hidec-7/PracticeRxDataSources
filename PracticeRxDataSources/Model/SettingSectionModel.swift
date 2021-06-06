@@ -13,6 +13,7 @@ typealias SettingSectionModel = SectionModel<SettingsSection, SettingsItem>
 enum SettingsSection {
     case account
     case common
+    case other
     
     var headerHeight: CGFloat {
         return 40.0
@@ -33,6 +34,10 @@ enum SettingsItem {
     case sounds
     case dataUsing
     case accessibility
+    // other section
+    case credits
+    case version
+    case privacyPolicy
     
     // other
     case description(text: String)
@@ -53,6 +58,12 @@ enum SettingsItem {
             return "データ利用時の設定"
         case .accessibility:
             return "アクセシビリティ"
+        case .credits:
+            return "クレジット"
+        case .version:
+            return "バージョン情報"
+        case .privacyPolicy:
+            return "プライバシポリシー"
         case .description:
             return nil
         }
@@ -69,7 +80,7 @@ enum SettingsItem {
     
     var accessoryType: UITableViewCell.AccessoryType {
         switch self {
-        case .account, .security, .notification, .contents, .sounds, .dataUsing, .accessibility:
+        case .account, .security, .notification, .contents, .sounds, .dataUsing, .accessibility, .credits, .version, .privacyPolicy:
             return .disclosureIndicator
         case .description:
             return .none

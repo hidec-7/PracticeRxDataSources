@@ -24,7 +24,8 @@ class SettingViewModel {
     
     func updateItems() {
         let sections: [SettingSectionModel] = [accountSection(),
-                                               commonSection()]
+                                               commonSection(),
+                                               otherSection()]
         items.accept(sections)
     }
     
@@ -42,5 +43,12 @@ class SettingViewModel {
                                      .accessibility,
                                      .description(text: "基本設定はこの端末でログインしている全てのアカウントに適用されます。")]
         return SettingSectionModel(model: .common, items: items)
+    }
+    
+    func otherSection() -> SettingSectionModel {
+        let items: [SettingsItem] = [.credits,
+                                     .version,
+                                     .privacyPolicy]
+        return SettingSectionModel(model: .other, items: items)
     }
 }
